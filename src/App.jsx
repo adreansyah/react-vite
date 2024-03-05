@@ -1,6 +1,5 @@
 import Layout from "./layout"
 
-
 const App = () => {
   return (<Layout />)
 }
