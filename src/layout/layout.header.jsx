@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import CarBanner from '../assets/images/binar.car.banner.png';
 import Button from '../components/Button';
 const urlLink = [{
@@ -14,6 +15,13 @@ const urlLink = [{
     navName: 'FAQ'
 }];
 export const Header = () => {
+    const [open, setopen] = useState(false);
+
+    const toggle = () => {
+        setopen(!open);
+    }
+
+    console.log(open);
     return (
         <header className="container header-banner">
             <div className="header-nav">
@@ -25,16 +33,22 @@ export const Header = () => {
                     ))}
                 </ul>
                 <div className='btn-responsive'>
-                    <button id="btn-open" className="btn-menu">
+                    <button onClick={toggle} type='button' className="btn-menu">
                         <i className="fa fa-bars"></i>
                     </button>
-                    <div id="toggle" className="responsive-nav">
+                    {open && <div id="toggle" className="responsive-nav">
                         <ul className="navbar">
+                            <li>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                    <span> BCR</span>
+                                    <button onClick={toggle} style={{ border: 0, background: 'white', fontSize: 24 }}><i className='fa fa-times'></i></button>
+                                </div>
+                            </li>
                             {urlLink?.map((item, index) => (
                                 <li key={index}>{item?.navName}</li>
                             ))}
                         </ul>
-                    </div>
+                    </div>}
                 </div>
             </div>
 
