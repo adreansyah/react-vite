@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import CarBanner from '../assets/images/binar.car.banner.png';
 import Button from '../components/Button';
+
 const urlLink = [{
     link: "#",
     navName: 'Our Services'
@@ -14,14 +15,15 @@ const urlLink = [{
     link: "#",
     navName: 'FAQ'
 }];
-export const Header = () => {
-    const [open, setopen] = useState(false);
 
+export const Header = () => {
+    const [open, setopen] = useState(false); //tutup
+
+    //open false
     const toggle = () => {
         setopen(!open);
     }
 
-    console.log(open);
     return (
         <header className="container header-banner">
             <div className="header-nav">

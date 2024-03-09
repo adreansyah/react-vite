@@ -1,5 +1,6 @@
 import ic_checklist from '../assets/icon/ic_checklist.svg';
 import userService from '../assets/images/binar.user.service.png';
+
 const listItem = [{
     icon: ic_checklist,
     text: 'Sewa Mobil Dengan Supir di Bali 12 Jam'
