@@ -19,11 +19,6 @@ const listItem = [{
 }];
 
 const Services = () => {
-
-    window.addEventListener('click', (event) => {
-        console.log(event);
-    });
-
     return (
         <section className="container">
             <div className="section-services">
@@ -32,7 +27,7 @@ const Services = () => {
                         alt="introduction-pict" />
                 </div>
                 <div className="section-information-list">
-                    <h2 className="section-service-title">Best Car Rental for any kind of trip in (Lokasimu)!</h2>
+                    <h2 className="section-service-title"> Best Car Rental for any kind of trip in (Lokasimu)!</h2>
                     <p className="section-service-paragraph">Sewa mobil di (Lokasimu) bersama Binar Car Rental jaminan harga
                         lebih murah dibandingkan yang lain,
                         kondisi mobil baru, serta kualitas pelayanan terbaik untuk perjalanan wisata, bisnis, wedding,

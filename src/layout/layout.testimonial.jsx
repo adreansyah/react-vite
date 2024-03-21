@@ -94,8 +94,8 @@ const Testimonial = () => {
                 spaceBetween={30}
                 centeredSlides={true}
                 className='section-box'
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
+                // onSlideChange={() => console.log('slide change')}
+                // onSwiper={(swiper) => console.log(swiper)}
             >
                 {
                     data?.map((item, index) => {
