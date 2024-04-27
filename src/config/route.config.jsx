@@ -1,4 +1,5 @@
 import Home from "../pages/home"
+import Login from "../pages/login"
 import PilihMobil from "../pages/pilih.mobil"
 
 export const privateRoutes = () => {
@@ -18,6 +19,11 @@ export const publicRoutes = (props) => {
         index: true,
         path: "/pilih-mobil",
         element: <PilihMobil title="mulai sewa" {...props} />,
+    }
+        , {
+        index: true,
+        path: "/login",
+        element: <Login {...props} />,
     }, {
         index: true,
         path: "/register",

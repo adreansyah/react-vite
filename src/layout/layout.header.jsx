@@ -39,7 +39,7 @@ export const Header = () => {
                         <NavLink to='/register'>
                             <button type='button' className='hero-btn-banner btn-sm'>Register</button>
                         </NavLink>
-                        <NavLink to='/register'>
+                        <NavLink to='/login'>
                             <button type='button' className='hero-btn-banner btn-sm'>Login</button>
                         </NavLink>
                     </li>
