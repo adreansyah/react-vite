@@ -19,7 +19,21 @@ body {
   font-family: Arial;
 }
 
-.container {
+.box-card-selected {
+  padding-left: 6rem;
+  padding-right: 6rem;
+  position: relative;
+  top: -3rem;
+}
+
+.card-selected {
+  height: 106px;
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+}
+
+.container-local {
   padding-left: 8rem;
   padding-right: 8rem;
 }
@@ -43,6 +57,7 @@ body {
 
 .header-navlink {
   display: flex;
+  align-items: center;
   gap: 3rem;
   list-style: none;
   font-size: 14px;
@@ -442,7 +457,7 @@ span {
   .header-banner {
     position: relative;
   }
-  .container {
+  .container-local {
     padding-left: 4rem;
     padding-right: 4rem;
   }
@@ -613,7 +628,7 @@ span {
     max-width: 704px;
     height: 219px;
   }
-  .container {
+  .container-local {
     padding-left: 2rem;
     padding-right: 2rem;
   }

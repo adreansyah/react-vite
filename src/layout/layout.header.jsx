@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import CarBanner from '../assets/images/binar.car.banner.png';
 import Button from '../components/Button';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const urlLink = [{
     link: "#",
@@ -18,14 +19,15 @@ const urlLink = [{
 
 export const Header = () => {
     const [open, setopen] = useState(false); //tutup
-
-    //open false
+    const { pathname } = useLocation();
+    //open false    
     const toggle = () => {
         setopen(!open);
     }
-
+    if (pathname === '/register') return <></>
+    if (pathname === '/login') return <></>
     return (
-        <header className="container header-banner">
+        <header className="container-local header-banner">
             <div className="header-nav">
                 <div className="header-logo">
                 </div>
@@ -33,6 +35,15 @@ export const Header = () => {
                     {urlLink?.map((item, index) => (
                         <li key={index}>{item?.navName}</li>
                     ))}
+                    <li className='d-flex gap-2'>
+                        <NavLink to='/register'>
+                            <button type='button' className='hero-btn-banner btn-sm'>Register</button>
+                        </NavLink>
+                        <NavLink to='/register'>
+                            <button type='button' className='hero-btn-banner btn-sm'>Login</button>
+                        </NavLink>
+                    </li>
+
                 </ul>
                 <div className='btn-responsive'>
                     <button onClick={toggle} type='button' className="btn-menu">
@@ -62,7 +73,9 @@ export const Header = () => {
                         dengan harga terjangkau.
                         Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.</p>
                     <div className="btn-mulai-sewa">
-                        <Button type="button" id="change-color" className="hero-btn-banner">Mulai Sewa Mobil</Button>
+                        <NavLink style={{ textDecoration: 'none' }} to={`/pilih-mobil`}>
+                            <Button type="button" id="change-color" className="hero-btn-banner">Mulai Sewa Mobil</Button>
+                        </NavLink>
                     </div>
                 </div>
                 <div className="hero-banner-car-grid">

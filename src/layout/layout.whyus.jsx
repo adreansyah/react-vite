@@ -6,7 +6,7 @@ import ic_professional from '../assets/icon/ic_professional.svg';
 
 const WhyUs = () => {
     return (
-        <section className="container section-whyus">
+        <section className="container-local section-whyus">
             <div className="section-box-whyu-content">
                 <h2 className="section-whyus-title">Why Us?</h2>
                 <p className="section-whyus-paragraph">Mengapa harus pilih Binar Car Rental?</p>

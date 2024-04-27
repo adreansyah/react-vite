@@ -3,10 +3,14 @@ import Ic_instagram from '../assets/icon/icon_instagram.png';
 import Ic_twitter from '../assets/icon/icon_twitter.png';
 import Ic_mail from '../assets/icon/icon_mail.png';
 import Ic_twitch from '../assets/icon/icon_twitch.png';
+import { useLocation } from 'react-router';
 
 const Footer = () => {
+    const { pathname } = useLocation();
+    if (pathname === '/register') return <></>
+    if (pathname === '/login') return <></>
     return (
-        <footer id="footer" className="container section-footer">
+        <footer id="footer" className="container-local section-footer">
             <div className="footer-address">
                 <p>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
                 <p>binarcarrental@gmail.com</p>

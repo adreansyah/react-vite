@@ -1,6 +1,6 @@
 const Banner = () => {
     return (
-        <section className="container section-sewa-mobil">
+        <section className="container-local section-sewa-mobil">
             <div className="section-card-sewa-mobil">
                 <h2>Sewa Mobil di (Lokasimu) Sekarang</h2>
                 <div className="pargraph-text-block">
