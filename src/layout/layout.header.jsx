@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import CarBanner from '../assets/images/binar.car.banner.png';
 import Button from '../components/Button';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { isLoggedIn } from '../helper/generics';
 
 const urlLink = [{
     link: "#",
@@ -19,10 +20,16 @@ const urlLink = [{
 
 export const Header = () => {
     const [open, setopen] = useState(false); //tutup
+    const navigate = useNavigate()
     const { pathname } = useLocation();
-    //open false    
+    const [istoggle, settoggle] = useState(false);
     const toggle = () => {
         setopen(!open);
+    }
+    const isLogout = () => {
+        localStorage.removeItem('TOKEN');
+        navigate('/');
+        settoggle(false);
     }
     if (pathname === '/register') return <></>
     if (pathname === '/login') return <></>
@@ -35,15 +42,25 @@ export const Header = () => {
                     {urlLink?.map((item, index) => (
                         <li key={index}>{item?.navName}</li>
                     ))}
-                    <li className='d-flex gap-2'>
+                    {!isLoggedIn() && <li className='d-flex gap-2'>
                         <NavLink to='/register'>
                             <button type='button' className='hero-btn-banner btn-sm'>Register</button>
                         </NavLink>
                         <NavLink to='/login'>
                             <button type='button' className='hero-btn-banner btn-sm'>Login</button>
                         </NavLink>
-                    </li>
-
+                    </li>}
+                    {isLoggedIn() && <li className='d-flex align-items-center gap-2 position-relative' style={{ cursor: 'pointer' }}>
+                        <div style={{ padding: 3 }} className='rounded-circle border px-2'><i className='fa fa-user' /></div>
+                        <span style={{ fontSize: 12 }}>jhon Doe</span>
+                        <span onClick={() => settoggle(!istoggle)}><i className='fa fa-chevron-down' style={{ fontSize: 12 }} /></span>
+                        {istoggle && <div className='position-absolute' style={{ background: 'white', zIndex: 10, width: '12rem', top: '2rem', left: '-2rem' }}>
+                            <div onClick={isLogout} className='d-flex p-2 gap-4' style={{ alignItems: 'center' }}>
+                                <i className='fa fa-sign-out' style={{ fontSize: 14 }} />
+                                <span style={{ fontSize: 14 }}>Logout</span>
+                            </div>
+                        </div>}
+                    </li>}
                 </ul>
                 <div className='btn-responsive'>
                     <button onClick={toggle} type='button' className="btn-menu">
