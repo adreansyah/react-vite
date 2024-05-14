@@ -4,8 +4,7 @@ import Services from "../../layout/layout.services";
 import Testimonial from "../../layout/layout.testimonial";
 import WhyUs from "../../layout/layout.whyus";
 
-const Home = (props) => {
-    console.log(props);
+const Home = () => {
     return (
         <>
             <Services />

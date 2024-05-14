@@ -3,6 +3,7 @@ import CarBanner from '../assets/images/binar.car.banner.png';
 import Button from '../components/Button';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { isLoggedIn } from '../helper/generics';
+// import axios from 'axios';
 
 const urlLink = [{
     link: "#",
@@ -22,10 +23,20 @@ export const Header = () => {
     const [open, setopen] = useState(false); //tutup
     const navigate = useNavigate()
     const { pathname } = useLocation();
+    const { state: id } = useLocation();
     const [istoggle, settoggle] = useState(false);
+    // const [data, setdata] = useState(null);
     const toggle = () => {
         setopen(!open);
     }
+    // const fetchApi = () => {
+    //     axios.get(`https://api-car-rental.binaracademy.org/customer/car/${id}`).then(result => {
+    //         console.log(result);
+    //     })
+    // }
+    // useEffect(() => {
+    //     fetchApi();
+    // }, []);
     const isLogout = () => {
         localStorage.removeItem('TOKEN');
         navigate('/');
@@ -83,7 +94,7 @@ export const Header = () => {
             </div>
 
             <div className="hero-banner">
-                <div>
+                {!id && <div>
                     <h1 className="hero-title">Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)</h1>
                     <p className="hero-paragraph">Selamat datang di Binar Car Rental. Kami menyediakan mobil
                         kualitas terbaik
@@ -94,12 +105,12 @@ export const Header = () => {
                             <Button type="button" id="change-color" className="hero-btn-banner">Mulai Sewa Mobil</Button>
                         </NavLink>
                     </div>
-                </div>
-                <div className="hero-banner-car-grid">
+                </div>}
+                {!id && <div className="hero-banner-car-grid">
                     <div className="hero-banner-car">
                         <img className="car-banner" src={CarBanner} alt="hero-banner-pic" />
                     </div>
-                </div>
+                </div>}
             </div>
         </header>
     )

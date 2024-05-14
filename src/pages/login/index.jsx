@@ -2,11 +2,12 @@ import Banner from '../../assets/images/binar.login.page.png';
 import { Input } from 'reactstrap';
 import { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import GooglePageLogin from '../../components/GoogleLogin';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const Login = () => {
-    const navigate = useNavigate();
     const [state, setState] = useState({
         email: '',
         password: ''
@@ -21,7 +22,7 @@ const Login = () => {
     const fetchApi = (body) => {
         axios.post('https://api-car-rental.binaracademy.org/customer/auth/login', { ...body }).then(result => {
             localStorage.setItem("TOKEN", result?.data?.access_token)
-            navigate('/');
+            window.location.replace('/home');
         }).catch(error => {
             console.log(error);
             toast(error?.response?.data?.message, { position: 'top-right', type: 'error', theme: 'colored' });
@@ -53,6 +54,9 @@ const Login = () => {
                 </div>
             </form>
             <div className='py-2' style={{ fontSize: 14, fontWeight: 500 }}>Already have an account? <Link to='/register'>Sign Up for free</Link></div>
+            <GoogleOAuthProvider clientId='205216238298-hm9oof8lime7ohotkd46psdorg6p33ll.apps.googleusercontent.com'>
+                <GooglePageLogin />
+            </GoogleOAuthProvider>
         </div>
         <div style={{ height: '100vh' }}>
             <img src={Banner} />

@@ -1,5 +1,4 @@
-import { Navigate, useRoutes, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { Navigate, useRoutes } from "react-router-dom";
 import { privateRoutes, publicRoutes } from "./route.config";
 import { isLoggedIn } from "../helper/generics";
 
@@ -10,10 +9,6 @@ export const AppCreatePublicRoutes = (props) => {
 
 export const AppCreatePrivateRoutes = (props) => {
     const routes = useRoutes(privateRoutes(props));
-    // const navigate = useNavigate();
-    // useEffect(() => {
-    //     navigate('/home');
-    // }, [navigate]);
     return routes;
 }
 
